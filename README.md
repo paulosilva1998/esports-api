@@ -41,5 +41,18 @@ esports-api/
 ├── .env                 # Variáveis de ambiente locais (ignorado no Git)
 ├── .env.example         # Modelo de configuração para novos ambientes
 ├── .gitignore           # Lista de arquivos e pastas excluídos do versionamento
+
+---
+
+# Clonar e Instalar Dependências
+
+# Clone o repositório
+git clone [https://github.com/paulosilva1998/esports-api.git](https://github.com/paulosilva1998/esports-api.git)
+
+# Acesse o diretório
+cd esports-api
+
+# Instale os pacotes necessários
+npm install
 ├── package.json         # Dependências, metadados e scripts de execução
 └── server.js            # Ponto de entrada e inicialização da aplicação Express
