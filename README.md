@@ -1,34 +1,45 @@
-# 📚 Atividades Práticas — Desenvolvimento de Aplicações Corporativas
+# 🎮 API de Times de E-sports
 
-Repositório contendo as aplicações práticas desenvolvidas na disciplina de **Desenvolvimento de Aplicações Corporativas** do curso de **Tecnologia em Análise e Desenvolvimento de Sistemas** (IFRS - Campus Bento Gonçalves), ministrada pelo **Prof. Dr. Maurício Covolan Rosito**.
-
----
-
-## 📑 Sumário
-
-1. [Projeto 1 — Simulador de Missão Espacial](#-projeto-1--simulador-de-missão-espacial)
-2. [Projeto 2 — Gerenciador de Clientes (Rotas Dinâmicas)](#-projeto-2--gerenciador-de-clientes-rotas-dinâmicas)
-3. [Projeto 3 — Avaliação Criativa de Filmes (Formulários)](#-projeto-3--avaliação-criativa-de-filmes-formulários)
-4. [Projeto 4 — Gerenciador e Filtro de Produtos](#-projeto-4--gerenciador-e-filtro-de-produtos)
-5. [Projeto 5 — Consumo de API: Rick and Morty](#-projeto-5--consumo-de-api-rick-and-morty)
-6. [Projeto 6 — API RESTful de Times de E-sports (Node.js & MySQL)](#-projeto-6--api-restful-de-times-de-e-sports-nodejs--mysql)
+API RESTful completa desenvolvida em **Node.js** com framework **Express.js** e banco de dados relacional **MySQL**. O projeto gerencia o cadastro, consulta, atualização, exclusão e filtragem de organizações participantes de campeonatos de esportes eletrônicos.
 
 ---
 
-## 🚀 Projeto 1 — Simulador de Missão Espacial
+## 📚 Conceitos Praticados
 
-Aplicação interativa desenvolvida em React para praticar o gerenciamento de estado composto (`useState`), eventos e efeitos colaterais com o ciclo de vida dos componentes (`useEffect`).
+* **Arquitetura Modular:** Separação de responsabilidades em camadas dedicadas (`config/`, `database/`, `routes/` e `requests/`).
+* **CRUD Completo:** Implementação dos métodos HTTP fundamentais (`GET`, `POST`, `PUT` e `DELETE`).
+* **Consultas com Query String:** Filtragem dinâmica de registros via parâmetros na URL (`GET /times?jogo=Valorant`).
+* **Códigos e Respostas HTTP Semânticos:** Uso de status padronizados da web (`200 OK`, `201 Created`, `400 Bad Request`, `404 Not Found` e `500 Internal Server Error`).
+* **Segurança e Variáveis de Ambiente:** Isolamento de credenciais locais de banco de dados com `dotenv` e bloqueio de rastreamento com `.gitignore`.
+* **Automação e Testes de API:** Execução em tempo de desenvolvimento monitorada por `nodemon` e testes de endpoints via extensão REST Client (`requests/testes.rest`).
 
-### 📚 Conceitos Praticados
-* **`useState` com Objetos:** Gerenciamento de estado composto contendo `nome`, `fase` e `combustivel`.
-* **Operador Spread (`...`):** Atualização imutável preservando propriedades anteriores ao atualizar apenas uma chave.
-* **`useEffect`:** Monitoramento da propriedade `missao.fase` para disparar efeitos colaterais no console do navegador.
+---
 
-### 🛠️ Tecnologias
-* React, Vite, JavaScript (ES6+), CSS Inline.
+## 🛠️ Tecnologias e Dependências
 
-### 🔧 Como Executar
-```bash
-cd missao-espacial
-npm install
-npm run dev
+* [Node.js](https://nodejs.org/) — Ambiente de execução JavaScript server-side.
+* [Express.js](https://expressjs.com/) — Framework web para criação de rotas, middlewares e APIs.
+* [MySQL2](https://github.com/sidorares/node-mysql2) — Driver para conexão assíncrona ao banco MySQL via Promises.
+* [dotenv](https://github.com/motdotla/dotenv) — Gerenciamento seguro de variáveis de ambiente.
+* [Nodemon](https://nodemon.io/) — Monitor de arquivos com reinicialização automática do servidor.
+* [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) — Extensão do VS Code para disparar requisições HTTP.
+
+---
+
+## 📁 Estrutura do Projeto
+
+```text
+esports-api/
+├── config/
+│   └── db.js            # Configuração do pool de conexões com o MySQL
+├── database/
+│   └── schema.sql       # Script de criação da base e tabela com dados iniciais
+├── requests/
+│   └── testes.rest      # Bateria de testes de todas as rotas (REST Client)
+├── routes/
+│   └── times.js         # Rotas, controladores e regras de negócio do CRUD
+├── .env                 # Variáveis de ambiente locais (ignorado no Git)
+├── .env.example         # Modelo de configuração para novos ambientes
+├── .gitignore           # Lista de arquivos e pastas excluídos do versionamento
+├── package.json         # Dependências, metadados e scripts de execução
+└── server.js            # Ponto de entrada e inicialização da aplicação Express
